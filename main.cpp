@@ -46,8 +46,10 @@ WINDOW *create_mainwin(int height, int width)
     startx = (COLS - width) / 2;
 
     win = newwin(height, width, starty, startx); /* create new window */
-    box(win, 0, 0);                              /* draw boundary of new window */
+    box(win, 0, 0);
+    mvwaddch(win, 2, 0, ACS_LTEE);               /* draw boundary of new window */
     mvwhline(win, 2, 1, ACS_HLINE, width-2);     /* draw a line */
+    mvwaddch(win, 2, width-1, ACS_RTEE);
     for(i=0; i<name_len-1; i++)
         mvwaddch(win, 1, (width-name_len)/2+i, name[i]);
     wrefresh(win);
