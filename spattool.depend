@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1478767268 source:/home/larry/workspace/spattool/main.cpp
+1478778855 source:/home/larry/workspace/spattool/main.cpp
 	<iostream>
 	<ncurses.h>
 	<stdio.h>
