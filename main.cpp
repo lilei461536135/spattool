@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
     curs_set(0);            /* Disable curse display    */
     refresh();              /* Refresh stdandard screen */
 
-    window = create_mainwin(20, 40);
+    window = create_mainwin(20, 60);
 
     getch();
 
@@ -36,13 +36,9 @@ WINDOW *create_mainwin(int height, int width)
 {
     WINDOW *win;
     int starty, startx;
-    char name[] = "spatt";
+    char name[] = "spattool";
     int name_len;
     int i;
-
-    //Create main window
-    height = 20;
-    width = 60;
 
     name_len = sizeof(name);
 
@@ -50,10 +46,12 @@ WINDOW *create_mainwin(int height, int width)
     startx = (COLS - width) / 2;
 
     win = newwin(height, width, starty, startx); /* create new window */
-    box(win, 0, 0);                              /* draw boundary of new window */
+    box(win, 0, 0);
+    mvwaddch(win, 2, 0, ACS_LTEE);               /* draw boundary of new window */
     mvwhline(win, 2, 1, ACS_HLINE, width-2);     /* draw a line */
+    mvwaddch(win, 2, width-1, ACS_RTEE);
     for(i=0; i<name_len-1; i++)
-        mvwaddch(win, starty+1, startx+(width-name_len)/2+i, name[i]);
+        mvwaddch(win, 1, (width-name_len)/2+i, name[i]);
     wrefresh(win);
 
     return win;
