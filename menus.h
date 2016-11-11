@@ -3,13 +3,15 @@
 
 #include <menu.h>
 
-class Menu()
+class Menu
 {
 private:
-
+    ITEM **items;
+    int n_choices;
 public:
-    Menu::Menu(int height, int width, int starty, int startx, char *choices[]);
-    Menu::~Menu();
+    Menu(const char *choices[]);
+    ~Menu();
+    MENU *create_menu(int h, int w, int y, int x, WINDOW *parent_win);
 };
 
 #endif // MENUS_H_INCLUDED

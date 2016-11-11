@@ -1,6 +1,13 @@
 # depslib dependency file v1.0
-1478786440 source:/home/larry/workspace/spattool/main.cpp
+1478834709 source:/home/larry/workspace/spattool/main.cpp
 	<iostream>
 	<ncurses.h>
 	<stdio.h>
+	"menus.h"
+
+1478833978 /home/larry/workspace/spattool/menus.h
+	<menu.h>
+
+1478835640 source:/home/larry/workspace/spattool/menus.cpp
+	"menus.h"
 

@@ -1,6 +1,7 @@
 #include <iostream>
 #include <ncurses.h>
 #include <stdio.h>
+#include "menus.h"
 
 using namespace std;
 
@@ -9,7 +10,10 @@ void del_mainwin(WINDOW *win);
 
 int main(int argc, char *argv[])
 {
-    WINDOW * window;
+    WINDOW *p_window;
+    MENU *p_menu;
+    const char *choices[] = {"open", "close", "exit", (char *)NULL};
+    Menu menu_1(choices);
 
     //Initialize standard screen
     initscr();              /* Start curses mode        */
@@ -19,11 +23,12 @@ int main(int argc, char *argv[])
     curs_set(0);            /* Disable curse display    */
     refresh();              /* Refresh stdandard screen */
 
-    window = create_mainwin(20, 60);
+    p_window = create_mainwin(20, 60);
+    p_menu = menu_1.create_menu(6, 20, 3, 1, p_window);
 
     getch();
 
-    del_mainwin(window);
+    del_mainwin(p_window);
     //refresh();
 
     while(1);
