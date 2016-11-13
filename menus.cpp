@@ -1,15 +1,14 @@
 #include "menus.h"
 
-#define ARRAY_SIZE(a) (sizeof(a) / sizeof(a[0]))
 
-Menu::Menu(const char *choices[])
+Menu::Menu(menu_content mc)
 {
     int i;
 
-    n_choices = ARRAY_SIZE(choices);    /* choices items number */
-    items = new ITEM* [n_choices];
+    n_choices = ARRAY_SIZE(mc.choices[0]);    /* choices items number */
+    items = new ITEM* [n_choices+1];
     for(i=0; i<n_choices; ++i)
-        items[i] = new_item(choices[i], choices[i]);
+        items[i] = new_item(mc.choices[i], mc.choices[i]);
 }
 
 Menu::~Menu()

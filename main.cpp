@@ -2,18 +2,25 @@
 #include <ncurses.h>
 #include <stdio.h>
 #include "menus.h"
+#include <string.h>
 
 using namespace std;
 
 WINDOW *create_mainwin(int height, int width);
 void del_mainwin(WINDOW *win);
 
+
 int main(int argc, char *argv[])
 {
     WINDOW *p_window;
     MENU *p_menu;
-    const char *choices[] = {"open", "close", "exit", (char *)NULL};
-    Menu menu_1(choices);
+    menu_content mc_file;
+
+    mc_file.title = "File";
+    mc_file.choices[0] = "Open";
+    mc_file.choices[1] = "Exit";
+
+    Menu menu_1(mc_file);
 
     //Initialize standard screen
     initscr();              /* Start curses mode        */
