@@ -16,6 +16,7 @@
 				</Compiler>
 				<Linker>
 					<Add option="-lncurses" />
+					<Add option="-lmenu" />
 				</Linker>
 			</Target>
 			<Target title="Release">
@@ -36,6 +37,8 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="main.cpp" />
+		<Unit filename="menus.cpp" />
+		<Unit filename="menus.h" />
 		<Extensions>
 			<code_completion />
 			<debugger />

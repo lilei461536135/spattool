@@ -8,7 +8,7 @@ Menu::Menu(menu_content mc)
     n_choices = ARRAY_SIZE(mc.choices[0]);    /* choices items number */
     items = new ITEM* [n_choices+1];
     for(i=0; i<n_choices; ++i)
-        items[i] = new_item(mc.choices[i], mc.choices[i]);
+        items[i] = new_item(mc.choices[i].c_str(), mc.choices[i].c_str());
 }
 
 Menu::~Menu()

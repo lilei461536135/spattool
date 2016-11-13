@@ -10,8 +10,8 @@ using namespace std;
 
 struct menu_content
 {
-    char *title;
-    char *choices[];
+    string title;
+    string choices[];
 };
 
 class Menu
