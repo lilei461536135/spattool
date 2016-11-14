@@ -14,9 +14,10 @@ int main(int argc, char *argv[])
 {
     WINDOW *p_window;
     MENU *p_menu;
+    MENU *p_title_menu;
     menu_content mc_file;
 
-    mc_file.title = "File";
+    mc_file.title = " File ";
     mc_file.choices[0] = "Open";
     mc_file.choices[1] = "Exit";
 
@@ -31,7 +32,8 @@ int main(int argc, char *argv[])
     refresh();              /* Refresh stdandard screen */
 
     p_window = create_mainwin(20, 60);
-    p_menu = menu_1.create_menu(6, 20, 3, 1, p_window);
+    p_title_menu = menu_1.create_menu_title(1, 6, 3, 1, p_window);
+    //p_menu = menu_1.create_menu(6, 20, 5, 1, p_window);
 
     getch();
 
